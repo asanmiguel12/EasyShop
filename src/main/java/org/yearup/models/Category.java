@@ -6,8 +6,7 @@ public class Category
     private String name;
     private String description;
 
-    public Category()
-    {
+    public Category() {
     }
 
     public Category(int categoryId, String name, String description)
@@ -17,8 +16,7 @@ public class Category
         this.description = description;
     }
 
-    public int getCategoryId()
-    {
+    public int getCategoryId() {
         return categoryId;
     }
 
