@@ -1,9 +1,12 @@
 package org.yearup.models;
 
+import lombok.Data;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+@Data
 public class ShoppingCart
 {
     private Map<Integer, ShoppingCartItem> items = new HashMap<>();
