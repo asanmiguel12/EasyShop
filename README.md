@@ -1,6 +1,6 @@
 # Adrian's EasyShop
-#### This Application utilizes Java Object Oriented Analysis and Design. Implements a simple user interface interactable by the command line in order to process user inputs. Processes and records sandwich creation plus a drink and chips. 
-
+![EasyShopLogo](ReadMeImages/logo.png)
+#### This Application is a e-commerce store that utilizes Java Spring Boot as well as fullstack web development APIs 
 ## Table of Contents
 
 - [Overview](#Overview)
@@ -12,16 +12,15 @@
 
 ## Overview
 
-![Diagram](Images/CapstoneDiagram.png)
+![Diagram](ReadMeImages/EasyShopHomeP.png)
 
-![DeliProjectFavCode](Images/OrderMenu.png)
 
-## Streamlined and simple user interface allows user to easily navigate application menus
+## EasyShop's HomePage allows users to easily choose to log-in and start browsing products
 
 ## Features
 
-* Creates a new sandwich according to the user's preferences and choices
-* Efficiently lists ongoing user inputs for sandwich toppings, bread, etc.
+* Displays product details which include dedicated images, descriptions and prices
+* Allows user to filter products with button sliders for price ranges and product categories
 * Writes and files a receipt of completed orders
 * Calculates total price of orders 
 * Allows users to navigate between menu prompts
