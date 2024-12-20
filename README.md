@@ -16,7 +16,7 @@
 ## Overview
 
 <p align="center" width="100%">
-    <img width="100%" src="ReadMeImages/EasyShopHomeP.png"> 
+    <img width="65%" src="ReadMeImages/EasyShopHomeP.png"> 
 </p>
 
 ## EasyShop's HomePage allows users to easily choose to log-in and start browsing products
