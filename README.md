@@ -3,7 +3,7 @@
     <img width="65%" src="ReadMeImages/logo.png"> 
 </p>
 
-#### This Application is a e-commerce store that utilizes Java Spring Boot as well as fullstack web development APIs 
+#### Welcome To EasyShop! This Application is a e-commerce store that utilizes Java Spring Boot as well as fullstack web development APIs 
 ## Table of Contents
 
 - [Overview](#Overview)
