@@ -15,8 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("products")
 @CrossOrigin
-public class ProductsController
-{
+public class ProductsController {
     private ProductDao productDao;
 
     @Autowired

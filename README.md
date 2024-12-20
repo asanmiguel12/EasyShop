@@ -1,5 +1,8 @@
-# Adrian's EasyShop
-![EasyShopLogo](ReadMeImages/logo.png)
+
+<p align="center" width="100%">
+    <img width="100%" src="ReadMeImages/logo.png"> 
+</p>
+
 #### This Application is a e-commerce store that utilizes Java Spring Boot as well as fullstack web development APIs 
 ## Table of Contents
 
@@ -12,7 +15,13 @@
 
 ## Overview
 
-![Diagram](ReadMeImages/EasyShopHomeP.png)
+
+
+<p align="center" width="100%">
+    <img width="100%" src="ReadMeImages/EasyShopHomeP.png"> 
+</p>
+
+
 
 
 ## EasyShop's HomePage allows users to easily choose to log-in and start browsing products
@@ -20,30 +29,49 @@
 ## Features
 
 * Displays product details which include dedicated images, descriptions and prices
-* Allows user to filter products with button sliders for price ranges and product categories
-* Writes and files a receipt of completed orders
-* Calculates total price of orders 
-* Allows users to navigate between menu prompts
-* Updates Local Date and Time to implement onto receipts
-* Prompts user on pre-made sandwiches to add to their order
+* Allows users to filter products with button sliders for price ranges and product categories
+* Has versatility for admin users via their bearer token that allow them to modify, create, or delete products and categories
+* Utilizes shopping cart functionality that holds user data of whatever product they choose to put into it
+* Different users should be able to log in and maintain their shopping cart history
 
 ## Favorite Code Snippet
 
-![FavCode](Images/DeliProjectFavCode.png)
-![LiveCurrentSandwich](Images/Live%20Current%20Sandwich%20Prompt.png)
+````
+  @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
+            throws IOException, ServletException {
+        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+        String jwt = resolveToken(httpServletRequest);
+        String requestURI = httpServletRequest.getRequestURI();
 
-For-Each loop utilized to iterate through long list of options instead of having an overly big amount of switch-cases
+        if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
+            Authentication authentication = tokenProvider.getAuthentication(jwt);
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            LOG.debug("set Authentication to custom security context for '{}', uri: {}", authentication.getName(), requestURI);
+        } else {
+            LOG.debug("no valid JWT token found, uri: {}", requestURI);
+        }
 
-Method that optimally prompts user of what is in their current sandwich to create a better user experience
+        filterChain.doFilter(servletRequest, servletResponse);
+    }
+
+    private String resolveToken(HttpServletRequest request) {
+        String bearerToken = request.getHeader(AUTHORIZATION_HEADER);
+        if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7);
+        }
+        return null;
+    }
+````
+Admin users generate a bearer token that allows them to utilize methods only available to them via the Spring Boot Annotation @PreAuthorize which checks the type of user that is logged-in
 
 ## Build Process
 
-- Follow the [React Native Guide](https://facebook.github.io/react-native/docs/getting-started.html) for getting started building a project with native code. **A Mac is required if you wish to develop for iOS.**
-- Clone or download the repo
-- `yarn` to install dependencies
-- `yarn run link` to link react-native dependencies
-- `yarn start:ios` to start the packager and run the app in the iOS simulator (`yarn start:ios:logger` will boot the application with [redux-logger](<https://github.com/evgenyrodionov/redux-logger>))
-- `yarn start:android` to start the packager and run the app in the Android device/emulator (`yarn start:android:logger` will boot the application with [redux-logger](https://github.com/evgenyrodionov/redux-logger))
+- Follow the [Intellij ](https://www.jetbrains.com/help/idea/your-first-spring-application.html) for getting started building a project Java Spring Boot.
+- Clone or download the mysql workbench database
+- `MySQL Workbench` to create database
+- `Postman (Desktop App For Mac Users)` to run and test queries
+
 
 
 ## Authors 
