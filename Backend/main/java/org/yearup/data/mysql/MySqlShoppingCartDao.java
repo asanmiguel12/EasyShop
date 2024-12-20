@@ -58,43 +58,6 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
         }
     }
 
-    @Override
-    public ShoppingCart create(int userId, int productId) {
-        ShoppingCart shoppingCart = getByUserId(userId);
-
-        ShoppingCartItem shoppingCartItem = shoppingCart.get(productId);
-
-        String sql = "";
-        if(shoppingCartItem == null) {
-            sql = "INSERT INTO shopping_cart(user_id, product_id, quantity) " +
-                    " VALUES (?, ?, 1);";
-        } else {
-            sql = "UPDATE shopping_cart SET quantity = ? WHERE product_id = ? and user_id = ?";
-        }
-
-        try (Connection connection = getConnection())
-        {
-            PreparedStatement statement = connection.prepareStatement(sql);
-            if(shoppingCartItem == null) {
-                statement.setInt(1, userId);
-                statement.setInt(2, productId);
-            } else {
-                statement.setInt(1, shoppingCartItem.getQuantity() + 1);
-                statement.setInt(2, productId);
-                statement.setInt(3, userId);
-            }
-
-            int rowsAffected = statement.executeUpdate();
-
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-        return getByUserId(userId);
-    }
-
 
     @Override
     public ShoppingCart addProductToCart(int userId, int productId) {
@@ -127,6 +90,18 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
 
     @Override
     public ShoppingCart clearCart(int userId) {
-        return null;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement("""
+                     DELETE FROM shopping_cart
+                     WHERE user_id = ?""")
+        ) {
+            statement.setInt(1, userId);
+
+            statement.executeUpdate();
+            return  null;
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to delete shopping cart for user ID: " + userId, e);
+        }
     }
+
 }
