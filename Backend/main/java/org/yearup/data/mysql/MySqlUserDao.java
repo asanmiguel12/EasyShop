@@ -21,20 +21,6 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
         super(dataSource);
     }
 
-    @Override
-    public ShoppingCart addProductToCart(int userId, int productId) {
-        return null;
-    }
-
-    @Override
-    public ShoppingCart updateCart(int userId, int productId, int quantity) {
-        return null;
-    }
-
-    @Override
-    public ShoppingCart clearCart(int userId) {
-        return null;
-    }
 
 
     @Override

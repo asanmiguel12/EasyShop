@@ -20,21 +20,6 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     }
 
     @Override
-    public ShoppingCart addProductToCart(int userId, int productId) {
-        return null;
-    }
-
-    @Override
-    public ShoppingCart updateCart(int userId, int productId, int quantity) {
-        return null;
-    }
-
-    @Override
-    public ShoppingCart clearCart(int userId) {
-        return null;
-    }
-
-    @Override
     public List<Product> search(Integer categoryId, BigDecimal minPrice, BigDecimal maxPrice, String color)
     {
         List<Product> products = new ArrayList<>();
