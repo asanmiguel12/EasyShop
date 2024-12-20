@@ -12,7 +12,6 @@ public interface ShoppingCartDao
 
     ShoppingCart addProductToCart(int userId, int id);
 
-    ShoppingCart updateCart(int productId, Product product, int i);
 
     void clearCart (int userId);
 

@@ -84,12 +84,7 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
     }
 
     @Override
-    public ShoppingCart updateCart(int productId, Product product, int i) {
-        return null;
-    }
-
-    @Override
-    public ShoppingCart updateCart(int userId, int productId, int quantity) {
+    public ShoppingCart updateCart(int userId, int productId, int i) {
         String sql = """
                 UPDATE shopping_cart
                 SET quantity = ?
@@ -99,7 +94,7 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
 
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setInt(1, quantity);
+            preparedStatement.setInt(1, i);
             preparedStatement.setInt(2, userId);
             preparedStatement.setInt(3, productId);
 
