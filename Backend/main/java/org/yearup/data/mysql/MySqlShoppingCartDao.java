@@ -48,6 +48,7 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
 
                     // add to hashmap (productId : shoppingCarItem)
                     shoppingCart.add(shoppingCartItem);
+                    System.err.println(shoppingCart);
                 }
                 // return a populated shopping cart
                 return shoppingCart;
@@ -113,6 +114,7 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
             throw new RuntimeException(e);
         }
         return this.getByUserId(userId);
