@@ -1,6 +1,7 @@
 package org.yearup.data.mysql;
 
 import org.springframework.stereotype.Component;
+import org.yearup.models.Product;
 import org.yearup.models.Profile;
 import org.yearup.data.ProfileDao;
 import org.yearup.models.ShoppingCart;
@@ -15,6 +16,7 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
     {
         super(dataSource);
     }
+
 
     @Override
     public Profile create(Profile profile)

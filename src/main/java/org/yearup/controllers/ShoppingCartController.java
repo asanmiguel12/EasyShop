@@ -102,21 +102,20 @@ public class ShoppingCartController {
 
     // add a DELETE method to clear all products from the current users cart
     // https://localhost:8080/cart
-    @DeleteMapping
-    public ResponseEntity<ShoppingCart> clearCart(Principal principal) {
-        try {
-            String userName = principal.getName();
-            // find database user by userId
-            User user = userDao.getByUserName(userName);
-            int userId = user.getId();
+        @DeleteMapping
+        public void clearCart(Principal principal) {
+            try {
+                    String userName = principal.getName();
+                    // find database user by userId
+                    User user = userDao.getByUserName(userName);
+                    int userId = user.getId();
 
-            ShoppingCart shoppingCart = this.shoppingCartDao.clearCart(userId);
-            return ResponseEntity.ok(shoppingCart);
+                    shoppingCartDao.clearCart(userId);
 
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+            } catch (Exception e) {
+                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+            }
         }
-    }
 
 }
 

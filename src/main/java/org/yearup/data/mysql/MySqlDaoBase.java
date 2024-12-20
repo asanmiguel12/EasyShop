@@ -1,5 +1,6 @@
 package org.yearup.data.mysql;
 
+import org.yearup.models.Product;
 import org.yearup.models.ShoppingCart;
 
 import javax.sql.DataSource;
@@ -16,5 +17,4 @@ public abstract class MySqlDaoBase {
     protected Connection getConnection() throws SQLException {
         return dataSource.getConnection();
     }
-
 }

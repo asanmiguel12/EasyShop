@@ -15,14 +15,9 @@
 
 ## Overview
 
-
-
 <p align="center" width="100%">
     <img width="100%" src="ReadMeImages/EasyShopHomeP.png"> 
 </p>
-
-
-
 
 ## EasyShop's HomePage allows users to easily choose to log-in and start browsing products
 
@@ -33,6 +28,10 @@
 * Has versatility for admin users via their bearer token that allow them to modify, create, or delete products and categories
 * Utilizes shopping cart functionality that holds user data of whatever product they choose to put into it
 * Different users should be able to log in and maintain their shopping cart history
+
+<p align="center" width="100%">
+    <img width="100%" src="ReadMeImages/EasyShopCart.png"> 
+</p>
 
 ## Favorite Code Snippet
 
