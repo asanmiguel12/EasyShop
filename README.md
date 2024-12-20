@@ -1,6 +1,6 @@
 
 <p align="center" width="100%">
-    <img width="100%" src="ReadMeImages/logo.png"> 
+    <img width="65%" src="ReadMeImages/logo.png"> 
 </p>
 
 #### This Application is a e-commerce store that utilizes Java Spring Boot as well as fullstack web development APIs 
@@ -16,7 +16,13 @@
 ## Overview
 
 <p align="center" width="100%">
-    <img width="65%" src="ReadMeImages/EasyShopHomeP.png"> 
+    <img width="100%" src="ReadMeImages/SQL.png"> 
+</p>
+
+## SQL Database Creation & Structure
+
+<p align="center" width="100%">
+    <img width="100%" src="ReadMeImages/EasyShopHomeP.png"> 
 </p>
 
 ## EasyShop's HomePage allows users to easily choose to log-in and start browsing products
